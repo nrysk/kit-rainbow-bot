@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  chrome:
+    image: selenium/standalone-chrome
+    platform: linux/x86_64
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    networks:
+      - my_network
+
+  bot:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    depends_on:
+      - chrome
+    volumes:
+      - ../src:/app/src
+      - ../.env:/app/.env
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
