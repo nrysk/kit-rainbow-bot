@@ -42,8 +42,6 @@ if __name__ == "__main__":
     print("Post...", file=sys.stderr)
     client.post(text)
 
-    input("Press Enter to quit...")
-
     # 終了
     print("Quit...", file=sys.stderr)
     client.quit()

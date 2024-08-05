@@ -4,13 +4,11 @@ services:
   chrome:
     image: selenium/standalone-chrome
     platform: linux/x86_64
-    ports:
-      - "4444:4444"
-      - "7900:7900"
     networks:
       - my_network
 
   bot:
+    image: r-kawano/rainbow-bot
     build:
       context: ../
       dockerfile: ./docker/Dockerfile

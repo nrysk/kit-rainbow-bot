@@ -14,4 +14,4 @@ RUN chmod 0644 /etc/cron.d/python-job
 RUN crontab /etc/cron.d/python-job
 RUN touch /var/log/cron.log
 
-CMD ["sh", "-c", "cron && tail -f /var/log/cron.log"]
+CMD ["sh", "-c", "echo 'Start Bot' && cron && tail -f /var/log/cron.log"]
