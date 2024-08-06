@@ -8,15 +8,19 @@ services:
       - my_network
 
   bot:
+
     image: r-kawano/rainbow-bot
     build:
       context: ../
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./docker/bot/Dockerfile
     depends_on:
       - chrome
     volumes:
       - ../src:/app/src
       - ../.env:/app/.env
+      - ./bot/cron.d/python-job:/etc/cron.d/python-job
+      - ./bot/start.sh:/app/start.sh
+      - ./bot/cache:/app/cache
     networks:
       - my_network
 
