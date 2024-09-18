@@ -66,13 +66,13 @@ class XClient:
             elem.send_keys(Keys.RETURN)
 
         # ログイン後の画面が表示されるまで待つ
-        WebDriverWait(self.driver, 10).until(EC.url_contains(X_HOME_URL))
+        WebDriverWait(self.driver, 16).until(EC.url_contains(X_HOME_URL))
 
         # クッキーを保存
         cookies = self.driver.get_cookies()
         pkl.dump(cookies, open(cookie_filename, "wb"))
 
-        time.sleep(2)
+        time.sleep(8)
 
     def post(self, text: str):
         # ポスト画面に遷移
@@ -83,4 +83,4 @@ class XClient:
         elem = self.driver.find_element(By.XPATH, POST_XPATH)
         elem.click()
 
-        time.sleep(2)
+        time.sleep(8)

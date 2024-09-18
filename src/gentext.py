@@ -248,9 +248,9 @@ if __name__ == "__main__":
     X_POST_URL = "https://twitter.com/intent/tweet?text={text}"
     # 動作確認
 
-    # for _ in range(20):
-    #     print(gen_random_text(abnormal_rate=0.9))
-    #     print()
+    for _ in range(20):
+        print(gen_random_text(abnormal_rate=0.9))
+        print()
 
-    print(TETRIS_TEXT)
-    print(X_POST_URL.format(text=TETRIS_TEXT))
+    print(NORMAL_TEXT)
+    print(X_POST_URL.format(text=NORMAL_TEXT))

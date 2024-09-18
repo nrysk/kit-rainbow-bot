@@ -3,13 +3,14 @@ version: '3'
 services:
   chrome:
     image: selenium/standalone-chrome
+    container_name: kit-rainbow-chrome
     platform: linux/x86_64
     networks:
-      - my_network
+      - kit-rainbow-network
 
   bot:
-
-    image: r-kawano/rainbow-bot
+    image: r-kawano/kit-rainbow-bot
+    container_name: kit-rainbow-bot
     build:
       context: ../
       dockerfile: ./docker/bot/Dockerfile
@@ -22,8 +23,8 @@ services:
       - ./bot/start.sh:/app/start.sh
       - ./bot/cache:/app/cache
     networks:
-      - my_network
+      - kit-rainbow-network
 
 networks:
-  my_network:
+  kit-rainbow-network:
     driver: bridge
